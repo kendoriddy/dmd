@@ -1,26 +1,130 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --charcoal: #12151a;
+  --charcoal-deep: #0a0c0f;
+  --silver-50: #f4f6f8;
+  --silver-100: #e2e6ec;
+  --silver-400: #9aa3b2;
+  --silver-500: #7a8494;
+  --growth: #1f8a65;
+  --growth-light: #3ecf9a;
+  --growth-muted: #164a3a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-deep: var(--charcoal-deep);
+  --color-silver-50: var(--silver-50);
+  --color-silver-100: var(--silver-100);
+  --color-silver-200: #c8ced8;
+  --color-silver-300: #b0b8c4;
+  --color-silver-400: var(--silver-400);
+  --color-silver-500: var(--silver-500);
+  --color-silver-600: #5c6575;
+  --color-growth: var(--growth);
+  --color-growth-light: var(--growth-light);
+  --color-growth-muted: var(--growth-muted);
+  --font-display: var(--font-syne);
+  --font-body: var(--font-source-serif);
+  --font-sans: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--charcoal-deep);
+  color: var(--silver-100);
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+}
+
+html[data-locale="ja"] body {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+html[data-locale="ja"] .font-display {
+  font-family: "Noto Sans JP", system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+}
+
+/* Silverline arc animation */
+@keyframes silverline-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes silverline-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 0.85;
+    filter: blur(12px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-silverline {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: silverline-dash 2.8s ease forwards 0.3s;
+}
+
+.animate-silverline-glow {
+  animation: silverline-glow 4s ease-in-out infinite;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #0a0c0f 0%,
+    #121a22 35%,
+    #0f1f1a 65%,
+    #0a0c0f 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 18s ease infinite;
+}
+
+.metallic-text {
+  background: linear-gradient(
+    105deg,
+    #e8ecf2 0%,
+    #a8b0bd 25%,
+    #f0f3f7 45%,
+    #8f98a8 70%,
+    #dce1e9 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.noise-overlay {
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
