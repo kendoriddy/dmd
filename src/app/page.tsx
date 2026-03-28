@@ -346,7 +346,7 @@ export default function HomePage() {
             </p>
             <p className="mt-4 font-body text-silver-300 leading-relaxed">
               Tokyo and Abuja anchor our network:{" "}
-              <strong className="text-white">technology transfer</strong> flows
+              <strong className="text-white">technology transfer </strong> flows
               alongside trade facilitation, aligning Japanese expertise with
               Nigeria&apos;s industrial and agri-modernization agenda.
             </p>
