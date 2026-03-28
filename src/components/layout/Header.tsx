@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
@@ -25,12 +26,25 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-charcoal/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 md:px-6">
-        <Link href="/" className="group flex items-baseline gap-1">
-          <span className="font-display text-lg font-bold tracking-tight text-silver-100 md:text-xl">
-            DMD
-          </span>
-          <span className="font-display text-lg font-light tracking-[0.2em] text-growth md:text-xl">
-            SILVERLINE
+        <Link
+          href="/"
+          className="group flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-growth"
+        >
+          <Image
+            src="/logo.jpeg"
+            alt=""
+            width={200}
+            height={56}
+            priority
+            className="h-9 w-auto max-h-10 shrink-0 object-contain md:h-10 md:max-h-11"
+          />
+          <span className="flex items-baseline gap-1">
+            <span className="font-display text-lg font-bold tracking-tight text-silver-100 md:text-xl">
+              DMD
+            </span>
+            <span className="font-display text-lg font-light tracking-[0.2em] text-growth md:text-xl">
+              SILVERLINE
+            </span>
           </span>
         </Link>
 
