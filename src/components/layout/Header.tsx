@@ -75,7 +75,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="flex rounded-full border border-white/15 bg-black/30 p-0.5 text-xs font-semibold">
+          {/* <div className="flex rounded-full border border-white/15 bg-black/30 p-0.5 text-xs font-semibold">
             {(["en", "ja"] as Locale[]).map((code) => (
               <button
                 key={code}
@@ -91,7 +91,7 @@ export function Header() {
                 {code.toUpperCase()}
               </button>
             ))}
-          </div>
+          </div> */}
 
           <button
             type="button"

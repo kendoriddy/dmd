@@ -31,6 +31,8 @@ const sectors: { id: Exclude<Sector, "">; label: string }[] = [
   { id: "consultancy", label: "Strategic consultancy" },
 ];
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+
 export default function ContactPage() {
   const { t } = useLanguage();
   const [step, setStep] = useState(1);
@@ -38,15 +40,64 @@ export default function ContactPage() {
   const [sector, setSector] = useState<Sector>("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const canNext1 = identity !== "";
   const canNext2 = sector !== "";
   const canSubmit = message.trim().length > 20;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!canSubmit) return;
-    setSubmitted(true);
+    if (!canSubmit || isSubmitting) return;
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
+    if (!accessKey) {
+      setSubmitError(
+        "This form is not connected yet. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY (see .env.example) or contact us by email.",
+      );
+      return;
+    }
+
+    const identityLabel =
+      identities.find((i) => i.id === identity)?.label ?? identity;
+    const sectorLabel = sectors.find((s) => s.id === sector)?.label ?? sector;
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch(WEB3FORMS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: "DMD SILVERLINE — Investor gateway",
+          from_name: `Inquiry: ${identityLabel}`,
+          message: `Identity: ${identityLabel}\nSector: ${sectorLabel}\n\nMessage:\n${message.trim()}`,
+        }),
+      });
+
+      let data: { success?: boolean; message?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        throw new Error("Invalid response");
+      }
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Submission rejected");
+      }
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        "We could not send your message. Please try again in a moment or reach out by email.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -269,12 +320,22 @@ export default function ContactPage() {
                   )}
                 </AnimatePresence>
 
+                {submitError ? (
+                  <p
+                    role="alert"
+                    className="mt-6 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 font-body text-sm text-red-200/90"
+                  >
+                    {submitError}
+                  </p>
+                ) : null}
+
                 <div className="mt-8 flex flex-wrap gap-3">
                   {step > 1 ? (
                     <button
                       type="button"
+                      disabled={isSubmitting}
                       onClick={() => setStep((s) => s - 1)}
-                      className="rounded-full border border-white/20 px-5 py-2.5 font-display text-sm font-semibold text-silver-200 hover:border-silver-400"
+                      className="rounded-full border border-white/20 px-5 py-2.5 font-display text-sm font-semibold text-silver-200 hover:border-silver-400 disabled:opacity-40"
                     >
                       Back
                     </button>
@@ -292,10 +353,10 @@ export default function ContactPage() {
                   ) : (
                     <button
                       type="submit"
-                      disabled={!canSubmit}
+                      disabled={!canSubmit || isSubmitting}
                       className="rounded-full bg-growth px-6 py-2.5 font-display text-sm font-semibold text-charcoal-deep disabled:cursor-not-allowed disabled:opacity-40 hover:enabled:bg-growth-light"
                     >
-                      {t.cta.partner}
+                      {isSubmitting ? "Sending…" : t.cta.partner}
                     </button>
                   )}
                 </div>
