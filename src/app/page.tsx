@@ -342,7 +342,7 @@ export default function HomePage() {
             className="rounded-2xl border border-white/10 bg-gradient-to-br from-growth-muted/40 to-charcoal-deep p-8 transition-colors"
           >
             <p className="font-display text-xs font-semibold uppercase tracking-widest text-growth-light">
-              Japan–Africa corridor
+              Asia–Africa corridor
             </p>
             <p className="mt-4 font-body text-silver-300 leading-relaxed">
               Tokyo and Abuja anchor our network:{" "}

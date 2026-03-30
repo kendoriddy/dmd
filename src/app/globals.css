@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --charcoal: #12151a;
-  --charcoal-deep: #0a0c0f;
-  --silver-50: #f4f6f8;
-  --silver-100: #e2e6ec;
-  --silver-400: #9aa3b2;
-  --silver-500: #7a8494;
-  --growth: #1f8a65;
-  --growth-light: #3ecf9a;
-  --growth-muted: #164a3a;
+  /* Light-first palette (white background, high contrast) */
+  --charcoal: #f6f7f9; /* surface */
+  --charcoal-deep: #ffffff; /* page */
+  --silver-50: #0b0e14; /* strongest text */
+  --silver-100: #111827; /* primary text */
+  --silver-400: #334155; /* secondary text */
+  --silver-500: #475569; /* muted text */
+  --growth: #0f766e; /* teal-green: better differentiation than pure green */
+  --growth-light: #0ea5a3; /* brighter teal for highlights */
+  --growth-muted: #e6fffb; /* subtle tint for light surfaces */
 }
 
 @theme inline {
@@ -100,10 +101,10 @@ html[data-locale="ja"] .font-display {
 .hero-gradient {
   background: linear-gradient(
     135deg,
-    #0a0c0f 0%,
-    #121a22 35%,
-    #0f1f1a 65%,
-    #0a0c0f 100%
+    #ffffff 0%,
+    #f6f7f9 35%,
+    #e9fffa 65%,
+    #ffffff 100%
   );
   background-size: 200% 200%;
   animation: gradient-shift 18s ease infinite;
@@ -112,11 +113,11 @@ html[data-locale="ja"] .font-display {
 .metallic-text {
   background: linear-gradient(
     105deg,
-    #e8ecf2 0%,
-    #a8b0bd 25%,
-    #f0f3f7 45%,
-    #8f98a8 70%,
-    #dce1e9 100%
+    #0b0e14 0%,
+    #334155 25%,
+    #0b0e14 45%,
+    #475569 70%,
+    #0b0e14 100%
   );
   -webkit-background-clip: text;
   background-clip: text;

@@ -24,7 +24,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-charcoal/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 md:px-6">
         <Link
           href="/"
@@ -58,14 +58,14 @@ export function Header() {
                 className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   active
                     ? "text-silver-50"
-                    : "text-silver-400 hover:text-silver-100"
+                    : "text-silver-400 hover:text-silver-50"
                 }`}
               >
                 {t.nav[key]}
                 {active ? (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-md bg-white/10"
+                    className="absolute inset-0 -z-10 rounded-md bg-growth-muted"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 ) : null}
@@ -95,7 +95,7 @@ export function Header() {
 
           <button
             type="button"
-            className="rounded-lg p-2 text-silver-200 lg:hidden"
+            className="rounded-lg p-2 text-silver-50 lg:hidden"
             aria-expanded={open}
             aria-label="Menu"
             onClick={() => setOpen((o) => !o)}
@@ -110,7 +110,7 @@ export function Header() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0 }}
-          className="border-t border-white/10 bg-charcoal lg:hidden"
+          className="border-t border-black/10 bg-white lg:hidden"
         >
           <nav className="flex flex-col px-4 py-3">
             {links.map(({ href, key }) => (
@@ -120,8 +120,8 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 className={`rounded-lg px-3 py-3 text-sm ${
                   pathname === href
-                    ? "bg-white/10 text-white"
-                    : "text-silver-300"
+                    ? "bg-growth-muted text-silver-50"
+                    : "text-silver-400"
                 }`}
               >
                 {t.nav[key]}
