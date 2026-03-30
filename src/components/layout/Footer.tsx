@@ -64,12 +64,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://dmd-silverline.com"
+                  href="https://dmdsilverline.net/"
                   className="hover:text-silver-100"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  dmd-silverline.com
+                  dmdsilverline.net/
                 </a>
               </li>
             </ul>

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   description:
     "International business development and consultancy. Responsible investment, technology transfer, and strategic partnerships across the Japan–Nigeria corridor and West Africa.",
-  metadataBase: new URL("https://dmd-silverline.com"),
+  metadataBase: new URL("https://dmdsilverline.net/"),
 };
 
 export default function RootLayout({
