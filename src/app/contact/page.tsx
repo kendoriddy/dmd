@@ -133,10 +133,10 @@ export default function ContactPage() {
             <div className="mt-6">
               <GlobalMapNodes />
             </div>
-            <div className="mt-8 overflow-hidden rounded-xl border border-white/10">
+            <div className="mt-8 overflow-hidden rounded-xl border border-black/10 bg-white">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-white/10 bg-charcoal/80">
+                  <tr className="border-b border-black/10 bg-charcoal/80">
                     <th className="px-4 py-3 font-display text-growth-light">
                       Location
                     </th>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   </tr>
                 </thead>
                 <tbody className="font-body text-silver-500">
-                  <tr className="border-b border-white/5">
+                  <tr className="border-b border-black/5">
                     <td className="px-4 py-3 font-medium text-silver-300">
                       Abuja HQ
                     </td>
@@ -168,7 +168,7 @@ export default function ContactPage() {
                       Global partnerships &amp; tech transfer
                     </td>
                     <td className="hidden px-4 py-3 md:table-cell">
-                      Japanese expertise with African industrial development.
+                      Asian expertise with African industrial development.
                     </td>
                   </tr>
                 </tbody>
@@ -176,7 +176,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-charcoal/80 p-6 shadow-[0_0_80px_rgba(0,0,0,0.35)] md:p-8">
+          <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_0_80px_rgba(2,6,23,0.06)] md:p-8">
             <h2 className="font-display text-xl font-semibold text-silver-100">
               Investor gateway
             </h2>
@@ -242,7 +242,7 @@ export default function ContactPage() {
                             className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition-colors ${
                               identity === opt.id
                                 ? "border-growth bg-growth/10"
-                                : "border-white/10 hover:border-white/20"
+                                : "border-black/10 hover:border-black/20"
                             }`}
                           >
                             <input
@@ -278,7 +278,7 @@ export default function ContactPage() {
                             className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
                               sector === opt.id
                                 ? "border-growth bg-growth/10 text-silver-100"
-                                : "border-white/10 text-silver-400 hover:border-white/20"
+                                : "border-black/10 text-silver-400 hover:border-black/20"
                             }`}
                           >
                             <input
@@ -335,7 +335,7 @@ export default function ContactPage() {
                       type="button"
                       disabled={isSubmitting}
                       onClick={() => setStep((s) => s - 1)}
-                      className="rounded-full border border-white/20 px-5 py-2.5 font-display text-sm font-semibold text-silver-200 hover:border-silver-400 disabled:opacity-40"
+                      className="rounded-full border border-black/15 px-5 py-2.5 font-display text-sm font-semibold text-silver-50 hover:border-silver-400 disabled:opacity-40"
                     >
                       Back
                     </button>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
@@ -22,8 +23,8 @@ const milestones = [
     text: "Expertise in trade development, technology transfer, and strategic investment facilitation.",
   },
   {
-    region: "Japan–Nigeria corridor",
-    text: "Architecting long-term investment partnerships and industrial modernization between Tokyo and Abuja.",
+    region: "Asia–Nigeria corridor",
+    text: "Architecting long-term investment partnerships and industrial modernization between Tokyo, broader Asia, and Abuja.",
   },
 ];
 
@@ -70,7 +71,7 @@ export default function LeadershipPage() {
     <main className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 lg:flex-row lg:gap-16">
         <aside className="lg:w-48 lg:shrink-0">
-          <nav className="sticky top-24 space-y-1 rounded-xl border border-white/10 bg-charcoal/60 p-3 backdrop-blur-sm">
+          <nav className="sticky top-24 space-y-1 rounded-xl border border-black/10 bg-white/85 p-3 backdrop-blur-sm">
             <p className="px-2 pb-2 font-display text-[10px] font-semibold uppercase tracking-widest text-silver-500">
               On this page
             </p>
@@ -103,7 +104,7 @@ export default function LeadershipPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative overflow-hidden rounded-2xl border border-white/10 bg-charcoal"
+              className="relative overflow-hidden rounded-2xl border border-black/10 bg-white"
             >
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(31,138,101,0.12),transparent_40%,rgba(226,230,236,0.06))]" />
               <div className="relative grid gap-8 p-8 md:grid-cols-[1fr_200px] md:items-center md:p-12">
@@ -137,23 +138,88 @@ export default function LeadershipPage() {
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2, duration: 0.7 }}
-                  className="relative mx-auto flex aspect-[3/4] w-full max-w-[200px] items-center justify-center rounded-xl border border-growth/30 bg-gradient-to-b from-silver-600/20 to-charcoal-deep md:max-w-none"
+                  className="relative mx-auto flex aspect-3/4 w-full max-w-[200px] items-center justify-center overflow-hidden rounded-xl border border-growth/25 bg-white md:max-w-none"
                 >
-                  <div
-                    className="absolute inset-0 rounded-xl opacity-40"
-                    style={{
-                      boxShadow:
-                        "inset 0 0 0 2px rgba(62, 207, 154, 0.35), 0 0 60px rgba(62, 207, 154, 0.15)",
-                    }}
+                  <Image
+                    src="/leadership/mohammed-sanni-dantoro.jpeg"
+                    alt="Mohammed Sanni Dantoro, President & CEO"
+                    fill
+                    priority
+                    sizes="(min-width: 768px) 200px, 60vw"
+                    className="object-cover"
                   />
-                  <span className="relative z-[1] px-4 text-center font-display text-xs uppercase tracking-widest text-silver-500">
-                    Portrait
-                    <br />
-                    <span className="text-silver-400">Silverline trace</span>
-                  </span>
+
+                  {/* Subtle overlay to keep legibility on bright images */}
+                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
+
+                  {/* Silverline trace around the portrait frame */}
+                  <motion.svg
+                    className="pointer-events-none absolute inset-0 h-full w-full"
+                    viewBox="0 0 100 140"
+                    fill="none"
+                    aria-hidden
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.35, duration: 0.35 }}
+                  >
+                    <defs>
+                      <linearGradient
+                        id="portraitSilverline"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0"
+                          stopColor="#0ea5a3"
+                          stopOpacity="0.7"
+                        />
+                        <stop
+                          offset="0.5"
+                          stopColor="#111827"
+                          stopOpacity="0.25"
+                        />
+                        <stop
+                          offset="1"
+                          stopColor="#0f766e"
+                          stopOpacity="0.55"
+                        />
+                      </linearGradient>
+                    </defs>
+                    <motion.path
+                      d="M 10 8 H 90 Q 94 8 94 12 V 128 Q 94 132 90 132 H 10 Q 6 132 6 128 V 12 Q 6 8 10 8 Z"
+                      stroke="url(#portraitSilverline)"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{
+                        duration: 1.8,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: 0.45,
+                      }}
+                    />
+                    <motion.path
+                      d="M 10 8 H 90 Q 94 8 94 12 V 128 Q 94 132 90 132 H 10 Q 6 132 6 128 V 12 Q 6 8 10 8 Z"
+                      stroke="#0ea5a3"
+                      strokeOpacity="0.25"
+                      strokeWidth="6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{
+                        duration: 2.1,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: 0.4,
+                      }}
+                    />
+                  </motion.svg>
                 </motion.div>
               </div>
-              <div className="grid grid-cols-2 gap-4 border-t border-white/10 bg-charcoal-deep/80 px-8 py-8 md:px-12">
+              <div className="grid grid-cols-2 gap-4 border-t border-black/10 bg-white px-8 py-8 md:px-12">
                 <AnimatedInt value={3} label="Continents" />
                 <AnimatedInt value={6} label="Core sectors" />
               </div>
@@ -167,7 +233,7 @@ export default function LeadershipPage() {
             <p className="mt-2 font-body text-silver-500">
               Scroll-driven milestones reflecting breadth of leadership.
             </p>
-            <div className="relative mt-10 space-y-0 border-l border-white/10 pl-8">
+            <div className="relative mt-10 space-y-0 border-l border-black/10 pl-8">
               {milestones.map((m, i) => (
                 <motion.article
                   key={m.region}
@@ -177,7 +243,7 @@ export default function LeadershipPage() {
                   transition={{ delay: i * 0.08 }}
                   className="relative pb-14 last:pb-0"
                 >
-                  <span className="absolute -left-[39px] top-1.5 h-3 w-3 rounded-full border-2 border-growth bg-charcoal-deep" />
+                  <span className="absolute -left-[39px] top-1.5 h-3 w-3 rounded-full border-2 border-growth bg-white" />
                   <h3 className="font-display text-lg font-semibold text-growth-light">
                     {m.region}
                   </h3>
@@ -202,7 +268,7 @@ export default function LeadershipPage() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="rounded-xl border border-white/10 bg-charcoal/60 p-4 font-body text-sm text-silver-400 leading-relaxed"
+                  className="rounded-xl border border-black/10 bg-white p-4 font-body text-sm text-silver-400 leading-relaxed"
                 >
                   {item}
                 </li>

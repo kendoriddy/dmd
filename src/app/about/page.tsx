@@ -58,7 +58,7 @@ export default function AboutPage() {
                     Strategic partnership
                   </strong>{" "}
                   is our primary operating model—we build durable relationships
-                  between Japanese investors, technology providers, and Nigerian
+                  between Asian investors, technology providers, and Nigerian
                   stakeholders.
                 </span>
               </li>
@@ -80,17 +80,17 @@ export default function AboutPage() {
               </li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-charcoal p-6">
+          <div className="rounded-2xl border border-black/10 bg-white p-6">
             <h3 className="font-display text-lg font-semibold text-silver-100">
               International presence
             </h3>
             <GlobalMapNodes compact />
             <dl className="mt-6 space-y-3 text-sm text-silver-400">
-              <div className="flex justify-between gap-4 border-t border-white/10 pt-3">
+              <div className="flex justify-between gap-4 border-t border-black/10 pt-3">
                 <dt className="text-silver-500">{t.common.headquarters}</dt>
                 <dd className="text-right text-silver-200">Abuja, Nigeria</dd>
               </div>
-              <div className="flex justify-between gap-4 border-t border-white/10 pt-3">
+              <div className="flex justify-between gap-4 border-t border-black/10 pt-3">
                 <dt className="text-silver-500">{t.common.representation}</dt>
                 <dd className="text-right text-silver-200">Tokyo, Japan</dd>
               </div>

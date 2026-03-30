@@ -18,11 +18,12 @@
   --color-charcoal-deep: var(--charcoal-deep);
   --color-silver-50: var(--silver-50);
   --color-silver-100: var(--silver-100);
-  --color-silver-200: #c8ced8;
-  --color-silver-300: #b0b8c4;
+  /* Light theme text ladder (ensure readability on white) */
+  --color-silver-200: #1f2937;
+  --color-silver-300: #334155;
   --color-silver-400: var(--silver-400);
   --color-silver-500: var(--silver-500);
-  --color-silver-600: #5c6575;
+  --color-silver-600: #64748b;
   --color-growth: var(--growth);
   --color-growth-light: var(--growth-light);
   --color-growth-muted: var(--growth-muted);

@@ -10,7 +10,7 @@ const cards = [
   {
     icon: Leaf,
     title: "Agricultural modernization",
-    body: "Japanese agri-technology, mechanization, and irrigation systems to raise productivity on West African soil.",
+    body: "Advanced agri-technology, mechanization, and irrigation systems to raise productivity on West African soil.",
   },
   {
     icon: Zap,
@@ -38,14 +38,14 @@ export default function PartnershipPage() {
         <div className="noise-overlay absolute inset-0 opacity-[0.03]" />
         <div className="relative mx-auto max-w-6xl">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.35em] text-growth-light">
-            Japan–Africa partnership
+            Asia–Africa partnership
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-4xl font-bold leading-tight text-silver-50 md:text-5xl">
             Bridging global expertise with African opportunity
           </h1>
           <p className="mt-6 max-w-2xl font-body text-lg text-silver-400 leading-relaxed">
             Empowering the{" "}
-            <strong className="text-silver-200">Japan–Nigeria corridor</strong>{" "}
+            <strong className="text-silver-200">Asia–Nigeria corridor</strong>{" "}
             through{" "}
             <strong className="text-silver-200">sustainable investment</strong>,{" "}
             <strong className="text-silver-200">industrial growth</strong>, and
@@ -58,7 +58,7 @@ export default function PartnershipPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 px-4 py-16 md:px-6 md:py-24">
+      <section className="border-t border-black/10 px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -82,7 +82,7 @@ export default function PartnershipPage() {
               <strong className="text-growth-light">
                 high-potential markets
               </strong>
-              , with emphasis on economic ties between Japan and Africa.
+              , with emphasis on economic ties between Asia and Africa.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
@@ -92,7 +92,7 @@ export default function PartnershipPage() {
                 },
                 {
                   title: "Strategic partnerships",
-                  text: "Long-term, mutually beneficial relationships between Japanese investors and Nigerian stakeholders.",
+                  text: "Long-term, mutually beneficial relationships between Asian investors and Nigerian stakeholders.",
                 },
                 {
                   title: "Sustainable growth",
@@ -101,7 +101,7 @@ export default function PartnershipPage() {
               ].map((item) => (
                 <li
                   key={item.title}
-                  className="rounded-xl border border-white/10 bg-charcoal/60 p-5"
+                  className="rounded-xl border border-black/10 bg-white p-5"
                 >
                   <p className="font-display text-sm font-semibold text-growth-light">
                     {item.title}
@@ -126,7 +126,7 @@ export default function PartnershipPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ y: -4, borderColor: "rgba(62, 207, 154, 0.35)" }}
-                className="rounded-2xl border border-white/10 bg-charcoal-deep/90 p-6 transition-colors"
+                className="rounded-2xl border border-black/10 bg-white p-6 transition-colors"
               >
                 <c.icon className="text-growth-light" size={26} />
                 <h3 className="mt-4 font-display text-lg font-semibold text-silver-100">
@@ -140,7 +140,7 @@ export default function PartnershipPage() {
           </div>
 
           <blockquote className="mt-20 border-l-4 border-growth pl-6">
-            <p className="font-body text-xl italic leading-relaxed text-silver-300 md:text-2xl">
+            <p className="font-body text-xl italic leading-relaxed text-silver-400 md:text-2xl">
               &ldquo;Our vision is to build a trusted platform that facilitates
               responsible investment, promotes industrial development, and
               supports economic growth across Africa by bridging the gap between
@@ -151,7 +151,7 @@ export default function PartnershipPage() {
             </footer>
           </blockquote>
 
-          <div className="mt-16 rounded-2xl border border-white/10 bg-charcoal p-8 md:p-10">
+          <div className="mt-16 rounded-2xl border border-black/10 bg-white p-8 md:p-10">
             <h2 className="font-display text-xl font-semibold text-silver-100">
               Regional presence
             </h2>
@@ -181,7 +181,7 @@ export default function PartnershipPage() {
               </Link>
               <Link
                 href="/contact"
-                className="rounded-full border border-white/20 px-6 py-3 font-display text-sm font-semibold text-silver-100 hover:border-growth"
+                className="rounded-full border border-black/15 px-6 py-3 font-display text-sm font-semibold text-silver-50 hover:border-growth"
               >
                 {t.cta.partner}
               </Link>

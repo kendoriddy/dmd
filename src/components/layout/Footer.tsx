@@ -17,9 +17,7 @@ export function Footer() {
               DMD SILVERLINE
             </p>
             <p className="mt-3 max-w-xs font-body text-sm leading-relaxed text-silver-500">
-              <strong className="text-silver-50">
-                Responsible investment
-              </strong>{" "}
+              <strong className="text-silver-50">Responsible investment</strong>{" "}
               and strategic facilitation between global partners and{" "}
               <strong className="text-growth-light">high-potential</strong>{" "}
               African markets.
@@ -85,15 +83,14 @@ export function Footer() {
               advisory.
             </p>
             <div className="mt-4 flex gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-black/15 text-silver-400 transition-colors hover:border-growth hover:text-growth"
-                aria-label="LinkedIn"
+              <span
+                title="LinkedIn (coming soon)"
+                className="flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-full border border-black/10 text-silver-400 opacity-60"
+                aria-label="LinkedIn (coming soon)"
+                role="img"
               >
                 <Linkedin size={18} />
-              </a>
+              </span>
             </div>
           </div>
         </div>

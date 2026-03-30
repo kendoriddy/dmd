@@ -8,7 +8,7 @@ export function GlobalMapNodes({ compact = false }: { compact?: boolean }) {
 
   return (
     <div
-      className="relative mx-auto overflow-hidden rounded-2xl border border-white/10 bg-charcoal/80"
+      className="relative mx-auto overflow-hidden rounded-2xl border border-black/10 bg-white"
       style={{ maxWidth: w, height: h }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(31,138,101,0.15),transparent_50%),radial-gradient(ellipse_at_75%_35%,rgba(226,230,236,0.08),transparent_45%)]" />

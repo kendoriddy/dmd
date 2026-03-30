@@ -210,7 +210,7 @@ export default function HomePage() {
             >
               <Link
                 href="/partnership"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-3.5 font-display text-sm font-semibold text-silver-100 transition-colors hover:border-growth hover:text-growth-light"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-black/15 px-8 py-3.5 font-display text-sm font-semibold text-silver-50 transition-colors hover:border-growth hover:text-growth"
               >
                 {t.cta.partner}
               </Link>
@@ -232,7 +232,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-charcoal px-4 py-20 md:px-6">
+      <section className="border-t border-black/10 bg-charcoal px-4 py-20 md:px-6">
         <div className="mx-auto max-w-6xl">
           <motion.div {...fadeUp}>
             <motion.h2
@@ -246,7 +246,7 @@ export default function HomePage() {
               <strong className="text-silver-200">connect</strong>,{" "}
               <strong className="text-silver-200">facilitate</strong>, and{" "}
               <strong className="text-silver-200">strengthen</strong> ties
-              between international capital, Japanese innovation, and African
+              between international capital, Asian innovation, and African
               industrial development.
             </p>
           </motion.div>
@@ -265,7 +265,7 @@ export default function HomePage() {
                       }
                 }
                 transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                className="rounded-2xl border border-white/10 bg-charcoal-deep/80 p-6 backdrop-blur-sm"
+                className="rounded-2xl border border-black/10 bg-white p-6 backdrop-blur-sm"
               >
                 <motion.div
                   whileHover={
@@ -288,7 +288,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 px-4 py-20 md:px-6">
+      <section className="border-t border-black/10 px-4 py-20 md:px-6">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
           <motion.div
             initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -36 }}
@@ -339,15 +339,15 @@ export default function HomePage() {
                     boxShadow: "0 0 0 1px rgba(62, 207, 154, 0.15)",
                   }
             }
-            className="rounded-2xl border border-white/10 bg-gradient-to-br from-growth-muted/40 to-charcoal-deep p-8 transition-colors"
+            className="rounded-2xl border border-black/10 bg-linear-to-br from-growth-muted/40 to-charcoal-deep p-8 transition-colors"
           >
             <p className="font-display text-xs font-semibold uppercase tracking-widest text-growth-light">
               Asia–Africa corridor
             </p>
             <p className="mt-4 font-body text-silver-300 leading-relaxed">
               Tokyo and Abuja anchor our network:{" "}
-              <strong className="text-white">technology transfer </strong> flows
-              alongside trade facilitation, aligning Japanese expertise with
+              <strong className="text-silver-50">technology transfer </strong>{" "}
+              flows alongside trade facilitation, aligning Asian expertise with
               Nigeria&apos;s industrial and agri-modernization agenda.
             </p>
             <motion.div
@@ -357,7 +357,7 @@ export default function HomePage() {
             >
               <Link
                 href="/partnership"
-                className="rounded-full border border-white/20 px-5 py-2.5 text-sm font-display font-semibold text-silver-100 transition-colors hover:border-growth"
+                className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-display font-semibold text-silver-50 transition-colors hover:border-growth"
               >
                 Explore the corridor
               </Link>
@@ -366,7 +366,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-charcoal-deep px-4 py-20 md:px-6">
+      <section className="border-t border-black/10 bg-charcoal-deep px-4 py-20 md:px-6">
         <div className="mx-auto max-w-6xl text-center">
           <motion.h2
             {...fadeUp}
@@ -415,7 +415,7 @@ export default function HomePage() {
             >
               <Link
                 href="/leadership"
-                className="inline-block rounded-full border border-white/20 px-8 py-3.5 font-display text-sm font-semibold text-silver-100 transition-colors hover:border-growth"
+                className="inline-block rounded-full border border-black/15 px-8 py-3.5 font-display text-sm font-semibold text-silver-50 transition-colors hover:border-growth"
               >
                 Leadership insight
               </Link>
