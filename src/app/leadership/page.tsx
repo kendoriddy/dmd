@@ -24,7 +24,7 @@ const milestones = [
   },
   {
     region: "Asia–Nigeria corridor",
-    text: "Architecting long-term investment partnerships and industrial modernization between Tokyo, broader Asia, and Abuja.",
+    text: "Architecting long-term investment partnerships and industrial modernization between Asia and Abuja.",
   },
 ];
 

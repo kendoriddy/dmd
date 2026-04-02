@@ -92,7 +92,7 @@ export default function AboutPage() {
               </div>
               <div className="flex justify-between gap-4 border-t border-black/10 pt-3">
                 <dt className="text-silver-500">{t.common.representation}</dt>
-                <dd className="text-right text-silver-200">Tokyo, Asia</dd>
+                <dd className="text-right text-silver-200">Asia</dd>
               </div>
             </dl>
             <Link

@@ -111,7 +111,7 @@ export default function ContactPage() {
             Connecting the world to Africa
           </h1>
           <p className="mt-4 font-body text-lg text-silver-400 leading-relaxed">
-            Abuja and Tokyo anchor our operations. This page reflects DMD
+            Abuja and Asia anchor our operations. This page reflects DMD
             SILVERLINE&apos;s role as an international{" "}
             <strong className="text-silver-200">bridge</strong>—with secure,
             high-trust channels for investors and institutional partners.
@@ -126,7 +126,7 @@ export default function ContactPage() {
             <p className="mt-2 font-body text-sm text-silver-500">
               Pulsing nodes:{" "}
               <strong className="text-growth-light">Abuja</strong> (HQ) and{" "}
-              <strong className="text-silver-300">Tokyo</strong> (partnerships).
+              <strong className="text-silver-300">Asia</strong> (partnerships).
               The silver arc symbolizes active technology transfer and trade
               flow.
             </p>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-medium text-silver-300">
-                      Tokyo
+                      Asia
                     </td>
                     <td className="px-4 py-3">
                       Global partnerships &amp; tech transfer

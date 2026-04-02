@@ -54,7 +54,7 @@ export function GlobalMapNodes({ compact = false }: { compact?: boolean }) {
             transition={{ duration: 2.5, repeat: Infinity }}
           />
         </g>
-        {/* Tokyo approx right-upper */}
+        {/* Asia approx right-upper */}
         <g transform="translate(720, 95)">
           <circle r="14" fill="#e2e6ec" opacity={0.2} />
           <motion.circle
@@ -69,7 +69,7 @@ export function GlobalMapNodes({ compact = false }: { compact?: boolean }) {
         <span className="text-growth-light">●</span> Abuja — HQ
       </div>
       <div className="pointer-events-none absolute right-3 top-3 rounded-lg bg-black/50 px-3 py-2 text-xs text-silver-300 backdrop-blur-sm">
-        <span className="text-silver-200">●</span> Tokyo — Partnerships
+        <span className="text-silver-200">●</span> Asia — Partnerships
       </div>
     </div>
   );
