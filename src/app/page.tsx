@@ -1,428 +1,405 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Building2, Globe2, Handshake } from "lucide-react";
-import { SilverlineArc } from "@/components/bridge/SilverlineArc";
-import { useLanguage } from "@/context/LanguageContext";
+import {
+  ArrowRight,
+  Briefcase,
+  Car,
+  Fuel,
+  Leaf,
+  Ship,
+  Zap,
+} from "lucide-react";
+import { GlobalMapNodes } from "@/components/bridge/GlobalMapNodes";
+import { SimpleContactForm } from "@/components/forms/SimpleContactForm";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
-const pillars = [
-  {
-    icon: Handshake,
-    title: "Partnership driven",
-    body: "Long-term strategic partnership—not transactional outreach. We bridge investors, technology partners, and local stakeholders with clarity and governance.",
-  },
-  {
-    icon: Building2,
-    title: "Local knowledge",
-    body: "Deep understanding of West African market intricacies paired with fluency in international standards and compliance expectations.",
-  },
-  {
-    icon: Globe2,
-    title: "Long-term value",
-    body: "Every mandate links to sustainable economic growth, infrastructure development, and measurable industrial impact.",
-  },
-];
-
-const headline =
-  "Bridging African Resources with Global Technology and Investment";
-
 export default function HomePage() {
-  const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
 
-  const heroWords = headline.split(" ");
-
-  const heroContainer = reduceMotion
-    ? undefined
-    : ({
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.045,
-            delayChildren: 0.12,
-          },
-        },
-      } as const);
-
-  const heroWord = reduceMotion
-    ? undefined
-    : ({
-        hidden: { opacity: 0, y: 22, filter: "blur(10px)" },
-        visible: {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          transition: { duration: 0.55, ease: easeOut },
-        },
-      } as const);
-
   const fadeUp = {
-    initial: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 28 },
+    initial: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-72px" },
-    transition: {
-      duration: reduceMotion ? 0.25 : 0.65,
-      ease: easeOut,
-    },
+    viewport: { once: true, margin: "-80px" },
+    transition: { duration: 0.6, ease: easeOut },
   };
-
-  const cardReveal = (i: number) => ({
-    initial: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 32 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-48px" },
-    transition: {
-      duration: 0.55,
-      delay: reduceMotion ? 0 : i * 0.12,
-      ease: easeOut,
-    },
-  });
 
   return (
     <main className="overflow-x-hidden">
-      <section className="hero-gradient relative min-h-[88vh] overflow-hidden px-4 pb-20 pt-16 md:px-6 md:pt-24">
-        <div className="noise-overlay absolute inset-0" />
+      {/* 1. HERO SECTION (Top of Homepage) */}
+      <section className="relative min-h-[78vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/home-hero.svg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/55" />
+        </div>
 
-        {!reduceMotion ? (
-          <>
-            <motion.div
-              className="pointer-events-none absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-growth/15 blur-[100px]"
-              animate={{ x: [0, 24, 0], y: [0, -16, 0], scale: [1, 1.05, 1] }}
-              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="pointer-events-none absolute -right-24 top-1/3 h-72 w-72 rounded-full bg-silver-400/10 blur-[90px]"
-              animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
-              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="pointer-events-none absolute bottom-1/4 left-1/3 h-56 w-56 rounded-full bg-growth-muted/30 blur-[80px]"
-              animate={{ opacity: [0.25, 0.45, 0.25] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </>
-        ) : null}
-
-        <div className="relative mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
+        <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-center justify-center px-4 py-20 text-center md:px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: easeOut }}
-            className="flex items-center gap-3"
+            transition={{ duration: 0.65, ease: easeOut }}
+            className="max-w-4xl font-display text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
           >
-            <motion.span
-              aria-hidden
-              className="h-px w-8 bg-growth-light md:w-12"
-              initial={{ scaleX: 0, originX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.7, ease: easeOut, delay: 0.05 }}
-            />
-            <p className="font-display text-xs font-semibold uppercase tracking-[0.35em] text-growth-light">
-              The Bridge
-            </p>
-          </motion.div>
-
-          <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-[1.12] tracking-tight text-silver-50 md:text-5xl lg:text-6xl">
-            {reduceMotion ? (
-              <span className="metallic-text">{headline}</span>
-            ) : (
-              <motion.span
-                className="flex flex-wrap gap-x-[0.28em] gap-y-1"
-                variants={heroContainer}
-                initial="hidden"
-                animate="visible"
-              >
-                {heroWords.map((word, i) => (
-                  <motion.span
-                    key={`${word}-${i}`}
-                    variants={heroWord}
-                    className="metallic-text inline-block"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </motion.span>
-            )}
-          </h1>
-
+            Driving Strategic Investment and Development Across Africa
+          </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: reduceMotion ? 0 : 0.55,
-              duration: 0.6,
-              ease: easeOut,
-            }}
-            className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-silver-400 md:text-xl"
+            transition={{ delay: 0.08, duration: 0.6, ease: easeOut }}
+            className="mt-6 max-w-3xl font-body text-lg leading-relaxed text-white/85 md:text-xl"
           >
-            DMD SILVERLINE is a trusted platform for{" "}
-            <strong className="font-semibold text-silver-200">
-              responsible investment
-            </strong>
-            ,{" "}
-            <strong className="font-semibold text-silver-200">
-              technology transfer
-            </strong>
-            , and{" "}
-            <strong className="font-semibold text-silver-200">
-              strategic partnership
-            </strong>{" "}
-            across <strong className="text-growth-light">high-potential</strong>{" "}
-            markets in Nigeria and West Africa.
+            DMD SILVERLINE is an international business and advisory company
+            connecting African opportunities with global partners across energy,
+            agriculture, trade, and infrastructure. We facilitate investment,
+            technology transfer, and sustainable development between Africa and
+            international markets.
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: reduceMotion ? 0 : 0.72,
-              duration: 0.55,
-              ease: easeOut,
-            }}
+            transition={{ delay: 0.16, duration: 0.55, ease: easeOut }}
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
-            <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.02, y: -1 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-display text-sm font-semibold text-silver-50 transition hover:bg-white/90"
             >
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-growth px-8 py-3.5 font-display text-sm font-semibold text-charcoal-deep shadow-[0_0_40px_rgba(31,138,101,0.35)] transition-colors hover:bg-growth-light"
-              >
-                {t.cta.explore}
-                <motion.span
-                  animate={reduceMotion ? undefined : { x: [0, 4, 0] }}
-                  transition={{
-                    duration: 2.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <ArrowRight size={18} />
-                </motion.span>
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.02, y: -1 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              Explore Our Sectors
+              <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-8 py-3.5 font-display text-sm font-semibold text-white transition hover:border-white/60"
             >
-              <Link
-                href="/partnership"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-black/15 px-8 py-3.5 font-display text-sm font-semibold text-silver-50 transition-colors hover:border-growth hover:text-growth"
-              >
-                {t.cta.partner}
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="mt-16 md:mt-20"
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: reduceMotion ? 0 : 0.85,
-              duration: 0.7,
-              ease: easeOut,
-            }}
-          >
-            <SilverlineArc className="w-full max-w-3xl" />
+              Partner With Us
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      <section className="border-t border-black/10 bg-charcoal px-4 py-20 md:px-6">
-        <div className="mx-auto max-w-6xl">
+      {/* 2. POSITIONING SECTION (Immediately after Hero) */}
+      <section className="border-t border-black/10 px-4 py-20 md:px-6">
+        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-start">
           <motion.div {...fadeUp}>
-            <motion.h2
-              className="font-display text-3xl font-bold text-silver-50 md:text-4xl"
-              initial={false}
-            >
-              Global-Local Synergy
-            </motion.h2>
-            <p className="mt-4 max-w-3xl font-body text-silver-400 leading-relaxed">
-              An interactive representation of how we{" "}
-              <strong className="text-silver-200">connect</strong>,{" "}
-              <strong className="text-silver-200">facilitate</strong>, and{" "}
-              <strong className="text-silver-200">strengthen</strong> ties
-              between international capital, Asian innovation, and African
-              industrial development.
+            <h2 className="font-display text-3xl font-bold text-silver-50 md:text-4xl">
+              Bridging Africa and Global Markets
+            </h2>
+            <p className="mt-4 font-body text-silver-400 leading-relaxed">
+              DMD SILVERLINE operates at the intersection of African opportunity
+              and global expertise. With a presence in Nigeria and international
+              connections across Asia and Europe, the company facilitates
+              cross-border partnerships, particularly between Africa and Japan.
+              We support investors, governments, and private sector partners in
+              navigating high-growth opportunities.
             </p>
           </motion.div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {pillars.map((item, i) => (
-              <motion.div
-                key={item.title}
-                {...cardReveal(i)}
-                whileHover={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        y: -6,
-                        borderColor: "rgba(62, 207, 154, 0.35)",
-                        boxShadow: "0 24px 48px rgba(0,0,0,0.35)",
-                      }
-                }
-                transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                className="rounded-2xl border border-black/10 bg-white p-6 backdrop-blur-sm"
-              >
-                <motion.div
-                  whileHover={
-                    reduceMotion ? undefined : { scale: 1.08, rotate: -3 }
-                  }
-                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                  className="inline-flex rounded-xl bg-growth/10 p-2.5"
-                >
-                  <item.icon className="text-growth-light" size={28} />
-                </motion.div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-silver-100">
-                  {item.title}
-                </h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-silver-500">
-                  {item.body}
-                </p>
-              </motion.div>
-            ))}
+          <motion.div
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.06 }}
+          >
+            <GlobalMapNodes />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. LEADERSHIP SECTION */}
+      <section className="border-t border-black/10 bg-charcoal px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            {...fadeUp}
+            className="font-display text-3xl font-bold text-silver-50"
+          >
+            Leadership
+          </motion.h2>
+          <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-center">
+            <motion.div {...fadeUp}>
+              <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_20px_70px_rgba(2,6,23,0.06)]">
+                <Image
+                  src="/leadership/mohammed-sanni-dantoro.jpeg"
+                  alt="Mohammed Sanni Dantoro"
+                  fill
+                  sizes="(min-width: 768px) 520px, 90vw"
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+            <motion.div
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.06 }}
+            >
+              <p className="font-display text-lg font-semibold text-silver-50">
+                Mohammed Sanni Dantoro
+              </p>
+              <p className="mt-1 font-display text-sm font-semibold text-silver-500">
+                President &amp; Chief Executive Officer
+              </p>
+              <p className="mt-5 font-body text-silver-400 leading-relaxed">
+                An international business executive with experience across
+                Africa, Europe, and Asia, Mohammed Sanni Dantoro specializes in
+                trade development, investment facilitation, and strategic
+                partnerships. He leads DMD SILVERLINE’s mission to connect
+                global partners with Africa’s most promising opportunities, with
+                a strong focus on Japan–Africa collaboration.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
+      {/* 4. CORE SECTORS SECTION */}
       <section className="border-t border-black/10 px-4 py-20 md:px-6">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
-          <motion.div
-            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.65, ease: easeOut }}
-          >
-            <h2 className="font-display text-3xl font-bold text-silver-50">
-              Sector excellence
-            </h2>
-            <p className="mt-4 font-body text-silver-400 leading-relaxed">
-              From <strong className="text-silver-200">agriculture</strong> and{" "}
-              <strong className="text-silver-200">energy</strong> to{" "}
-              <strong className="text-silver-200">trade</strong>,{" "}
-              <strong className="text-silver-200">automotive</strong>,{" "}
-              <strong className="text-silver-200">oil & gas</strong>, and{" "}
-              <strong className="text-silver-200">strategic consultancy</strong>
-              —we demonstrate technical depth where investors and governments
-              expect precision.
-            </p>
-            <motion.div
-              className="mt-6 inline-flex"
-              whileHover={reduceMotion ? undefined : { x: 4 }}
-            >
-              <Link
-                href="/sectors"
-                className="inline-flex items-center gap-2 font-display text-sm font-semibold text-growth-light hover:underline"
-              >
-                {t.cta.learnMore}
-                <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-          </motion.div>
-          <motion.div
-            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{
-              duration: 0.65,
-              delay: reduceMotion ? 0 : 0.08,
-              ease: easeOut,
-            }}
-            whileHover={
-              reduceMotion
-                ? undefined
-                : {
-                    borderColor: "rgba(62, 207, 154, 0.25)",
-                    boxShadow: "0 0 0 1px rgba(62, 207, 154, 0.15)",
-                  }
-            }
-            className="rounded-2xl border border-black/10 bg-linear-to-br from-growth-muted/40 to-charcoal-deep p-8 transition-colors"
-          >
-            <p className="font-display text-xs font-semibold uppercase tracking-widest text-growth-light">
-              Asia–Africa corridor
-            </p>
-            <p className="mt-4 font-body text-silver-300 leading-relaxed">
-              Tokyo and Abuja anchor our network:{" "}
-              <strong className="text-silver-50">technology transfer </strong>{" "}
-              flows alongside trade facilitation, aligning Asian expertise with
-              Nigeria&apos;s industrial and agri-modernization agenda.
-            </p>
-            <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-              className="mt-6 inline-block"
-            >
-              <Link
-                href="/partnership"
-                className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-display font-semibold text-silver-50 transition-colors hover:border-growth"
-              >
-                Explore the corridor
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="border-t border-black/10 bg-charcoal-deep px-4 py-20 md:px-6">
-        <div className="mx-auto max-w-6xl text-center">
+        <div className="mx-auto max-w-6xl">
           <motion.h2
             {...fadeUp}
             className="font-display text-3xl font-bold text-silver-50 md:text-4xl"
           >
-            Investment &amp; projects
+            Our Core Sectors
+          </motion.h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <SectorCard
+              href="/services#agriculture"
+              icon={Leaf}
+              title="Agriculture & Agri-Technology"
+              text="Driving agricultural modernization through mechanization, irrigation, and global partnerships."
+            />
+            <SectorCard
+              href="/services#energy"
+              icon={Zap}
+              title="Energy"
+              text="Supporting renewable energy and infrastructure development across emerging markets."
+            />
+            <SectorCard
+              href="/services#trade"
+              icon={Ship}
+              title="Trade"
+              text="Facilitating international trade between Africa and global markets."
+            />
+            <SectorCard
+              href="/services#automobile"
+              icon={Car}
+              title="Automobile & Equipment"
+              text="Supplying vehicles and industrial equipment to support economic growth."
+            />
+            <SectorCard
+              href="/services#oilgas"
+              icon={Fuel}
+              title="Oil & Gas"
+              text="Advisory and investment facilitation across upstream, midstream, and downstream sectors."
+            />
+            <SectorCard
+              href="/services#consultancy"
+              icon={Briefcase}
+              title="Strategic Consultancy"
+              text="Providing market entry, partnership development, and project advisory services."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 5. INVESTMENT SECTION */}
+      <section className="border-t border-black/10 bg-growth-muted px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            {...fadeUp}
+            className="font-display text-3xl font-bold text-silver-50 md:text-4xl"
+          >
+            Strategic Investment Opportunities in Africa
           </motion.h2>
           <motion.p
             {...fadeUp}
-            transition={{
-              ...fadeUp.transition,
-              delay: reduceMotion ? 0 : 0.08,
-            }}
-            className="mx-auto mt-4 max-w-2xl font-body text-silver-400"
+            className="mt-4 max-w-4xl font-body text-silver-400 leading-relaxed"
           >
-            <strong className="text-silver-200">Economic impact</strong> through
-            opportunity identification, local partnership facilitation, project
-            development support, market entry advisory, and government
-            engagement.
+            Africa presents one of the world’s most dynamic growth markets, with
+            significant opportunities in agriculture, energy, infrastructure,
+            and natural resources. DMD SILVERLINE works with international
+            partners to identify, structure, and support viable investment
+            opportunities.
           </motion.p>
-          <motion.div
-            className="mt-10 flex flex-wrap justify-center gap-4"
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: reduceMotion ? 0 : 0.15,
-              duration: 0.5,
-              ease: easeOut,
-            }}
+          <ul className="mt-8 grid gap-3 md:grid-cols-2">
+            {[
+              "Agriculture and food systems",
+              "Energy and infrastructure",
+              "Natural resources",
+              "Industrial development",
+            ].map((b) => (
+              <li
+                key={b}
+                className="rounded-xl border border-black/10 bg-white px-5 py-4 font-body text-sm text-silver-500"
+              >
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 6. OUR APPROACH SECTION */}
+      <section className="border-t border-black/10 px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            {...fadeUp}
+            className="font-display text-3xl font-bold text-silver-50 md:text-4xl"
           >
-            <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.03, y: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-            >
-              <Link
-                href="/contact"
-                className="inline-block rounded-full bg-growth px-8 py-3.5 font-display text-sm font-semibold text-charcoal-deep shadow-[0_0_32px_rgba(31,138,101,0.25)] transition-colors hover:bg-growth-light"
+            Our Approach
+          </motion.h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <ApproachCard
+              title="Partnership-Driven"
+              text="We believe sustainable development is achieved through strong international collaboration."
+            />
+            <ApproachCard
+              title="Local Expertise"
+              text="Deep understanding of African markets ensures efficient execution and risk management."
+            />
+            <ApproachCard
+              title="Long-Term Value"
+              text="We focus on projects that create lasting economic impact and sustainable growth."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PARTNERS & COLLABORATION */}
+      <section className="border-t border-black/10 bg-charcoal px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            {...fadeUp}
+            className="font-display text-3xl font-bold text-silver-50 md:text-4xl"
+          >
+            Partnerships &amp; Collaboration
+          </motion.h2>
+          <motion.p {...fadeUp} className="mt-4 font-body text-silver-400">
+            We work with:
+          </motion.p>
+          <ul className="mt-8 grid gap-3 md:grid-cols-2">
+            {[
+              "International investors",
+              "Government institutions",
+              "Engineering and technical partners",
+              "Development organizations",
+              "Private sector stakeholders",
+            ].map((b) => (
+              <li
+                key={b}
+                className="rounded-xl border border-black/10 bg-white px-5 py-4 font-body text-sm text-silver-500"
               >
-                {t.cta.explore}
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.03, y: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-            >
-              <Link
-                href="/leadership"
-                className="inline-block rounded-full border border-black/15 px-8 py-3.5 font-display text-sm font-semibold text-silver-50 transition-colors hover:border-growth"
-              >
-                Leadership insight
-              </Link>
-            </motion.div>
-          </motion.div>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 8. CONTACT SECTION */}
+      <section className="border-t border-black/10 px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            {...fadeUp}
+            className="font-display text-3xl font-bold text-silver-50 md:text-4xl"
+          >
+            Partner With Us
+          </motion.h2>
+          <motion.p {...fadeUp} className="mt-4 font-body text-silver-400">
+            For investment opportunities, partnerships, or project
+            collaboration:
+          </motion.p>
+
+          <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-start">
+            <div className="rounded-2xl border border-black/10 bg-white p-8">
+              <p className="font-display text-sm font-semibold text-silver-50">
+                DMD SILVERLINE
+              </p>
+              <p className="mt-2 font-body text-sm text-silver-500">
+                Abuja, Nigeria
+              </p>
+              <p className="mt-4 font-body text-sm text-silver-500">
+                Email:{" "}
+                <span className="text-silver-50">info@dmdsilverline.net</span>
+              </p>
+              <p className="mt-2 font-body text-sm text-silver-500">
+                Website:{" "}
+                <span className="text-silver-50">dmdsilverline.net</span>
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 font-display text-sm font-semibold text-growth hover:underline"
+                >
+                  Open full contact page
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-black/10 bg-white p-8">
+              <p className="font-display text-sm font-semibold text-silver-50">
+                Contact form
+              </p>
+              <SimpleContactForm />
+            </div>
+          </div>
         </div>
       </section>
     </main>
+  );
+}
+
+function SectorCard({
+  href,
+  icon: Icon,
+  title,
+  text,
+}: Readonly<{
+  href: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  title: string;
+  text: string;
+}>) {
+  return (
+    <Link
+      href={href}
+      className="group rounded-2xl border border-black/10 bg-white p-6 transition hover:border-growth hover:shadow-[0_24px_70px_rgba(2,6,23,0.08)]"
+    >
+      <div className="inline-flex rounded-xl bg-growth/10 p-2.5 text-growth">
+        <Icon size={22} />
+      </div>
+      <h3 className="mt-4 font-display text-lg font-semibold text-silver-50">
+        {title}
+      </h3>
+      <p className="mt-2 font-body text-sm leading-relaxed text-silver-500">
+        {text}
+      </p>
+      <p className="mt-4 font-display text-xs font-semibold text-growth">
+        View sector
+      </p>
+    </Link>
+  );
+}
+
+function ApproachCard({
+  title,
+  text,
+}: Readonly<{
+  title: string;
+  text: string;
+}>) {
+  return (
+    <div className="rounded-2xl border border-black/10 bg-white p-6">
+      <h3 className="font-display text-lg font-semibold text-silver-50">
+        {title}
+      </h3>
+      <p className="mt-2 font-body text-sm leading-relaxed text-silver-500">
+        {text}
+      </p>
+    </div>
   );
 }
