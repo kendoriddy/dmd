@@ -164,7 +164,7 @@ export default function PartnershipPage() {
                 <strong className="text-silver-200">
                   International representation:
                 </strong>{" "}
-                Tokyo, Japan — global partnerships and technology transfer.
+                Tokyo, Asia — global partnerships and technology transfer.
               </li>
               <li>
                 <strong className="text-silver-200">Strategic reach:</strong>{" "}

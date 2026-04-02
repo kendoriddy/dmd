@@ -96,7 +96,7 @@ export function Footer() {
         </div>
         <p className="mt-12 border-t border-black/10 pt-8 text-center text-xs text-silver-500">
           © {year} DMD SILVERLINE. {t.common.headquarters}: Abuja, Nigeria ·{" "}
-          {t.common.representation}: Tokyo, Japan
+          {t.common.representation}: Tokyo, Asia
         </p>
       </div>
     </footer>

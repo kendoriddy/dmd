@@ -98,7 +98,7 @@ export default function HomePage() {
               DMD SILVERLINE operates at the intersection of African opportunity
               and global expertise. With a presence in Nigeria and international
               connections across Asia and Europe, the company facilitates
-              cross-border partnerships, particularly between Africa and Japan.
+              cross-border partnerships, particularly between Africa and Asia.
               We support investors, governments, and private sector partners in
               navigating high-growth opportunities.
             </p>
@@ -149,7 +149,7 @@ export default function HomePage() {
                 trade development, investment facilitation, and strategic
                 partnerships. He leads DMD SILVERLINE’s mission to connect
                 global partners with Africa’s most promising opportunities, with
-                a strong focus on Japan–Africa collaboration.
+                a strong focus on Asia–Africa collaboration.
               </p>
             </motion.div>
           </div>

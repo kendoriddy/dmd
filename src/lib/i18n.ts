@@ -6,7 +6,7 @@ export const translations = {
     nav: {
       home: "Home",
       about: "About",
-      partnership: "Japan–Africa",
+      partnership: "Asia–Africa",
       sectors: "Sectors",
       leadership: "Leadership",
       contact: "Contact",
@@ -26,7 +26,7 @@ export const translations = {
     nav: {
       home: "ホーム",
       about: "会社概要",
-      partnership: "日アフリカ",
+      partnership: "アジア・アフリカ",
       sectors: "セクター",
       leadership: "リーダーシップ",
       contact: "お問い合わせ",
