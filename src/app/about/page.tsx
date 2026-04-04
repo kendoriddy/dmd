@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { GlobalMapNodes } from "@/components/bridge/GlobalMapNodes";
 import { useLanguage } from "@/context/LanguageContext";
@@ -101,6 +102,50 @@ export default function AboutPage() {
             >
               {t.cta.partner}
             </Link>
+          </div>
+        </motion.div>
+
+        <motion.div
+          {...v}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-20 border-t border-black/10 pt-16"
+        >
+          <h2 className="font-display text-2xl font-semibold text-silver-100">
+            President &amp; CEO
+          </h2>
+          <p className="mt-2 max-w-2xl font-body text-silver-400">
+            The executive leading DMD SILVERLINE&apos;s work across the
+            Asia–Africa corridor.
+          </p>
+          <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-start">
+            <div className="relative aspect-3/4 max-h-112 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_20px_70px_rgba(2,6,23,0.06)]">
+              <Image
+                src="/leadership/mohammed-sanni-dantoro.jpeg"
+                alt="Mohammed Sanni Dantoro, President and Chief Executive Officer"
+                fill
+                sizes="(min-width: 768px) 400px, 90vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="font-display text-lg font-semibold text-silver-50">
+                Mohammed Sanni Dantoro
+              </p>
+              <p className="mt-1 font-display text-sm font-semibold text-silver-500">
+                President &amp; Chief Executive Officer
+              </p>
+              <p className="mt-5 font-body text-silver-400 leading-relaxed">
+                An international business executive with experience across
+                Africa, Europe, and Asia, specializing in trade development,
+                investment facilitation, and strategic partnerships.
+              </p>
+              <Link
+                href="/leadership"
+                className="mt-6 inline-block font-display text-sm font-semibold text-growth hover:underline"
+              >
+                View full leadership profile →
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

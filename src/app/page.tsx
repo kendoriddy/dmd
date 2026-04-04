@@ -112,7 +112,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. LEADERSHIP SECTION */}
+      {/* 3. LEADERSHIP SECTION — text and statements only (no photograph on homepage) */}
       <section className="border-t border-black/10 bg-charcoal px-4 py-20 md:px-6">
         <div className="mx-auto max-w-6xl">
           <motion.h2
@@ -121,22 +121,8 @@ export default function HomePage() {
           >
             Leadership
           </motion.h2>
-          <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-center">
+          <div className="mt-10 max-w-3xl">
             <motion.div {...fadeUp}>
-              <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_20px_70px_rgba(2,6,23,0.06)]">
-                <Image
-                  src="/leadership/mohammed-sanni-dantoro.jpeg"
-                  alt="Mohammed Sanni Dantoro"
-                  fill
-                  sizes="(min-width: 768px) 520px, 90vw"
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: 0.06 }}
-            >
               <p className="font-display text-lg font-semibold text-silver-50">
                 Mohammed Sanni Dantoro
               </p>
@@ -151,7 +137,37 @@ export default function HomePage() {
                 global partners with Africa’s most promising opportunities, with
                 a strong focus on Asia–Africa collaboration.
               </p>
+              <p className="mt-6 font-body text-sm text-silver-500">
+                <Link
+                  href="/leadership"
+                  className="font-display font-semibold text-growth hover:underline"
+                >
+                  Full leadership profile
+                </Link>
+                {" · "}
+                <Link
+                  href="/about"
+                  className="font-display font-semibold text-growth hover:underline"
+                >
+                  About
+                </Link>
+              </p>
             </motion.div>
+            <motion.blockquote
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.08 }}
+              className="mt-10 border-l-4 border-growth pl-6"
+            >
+              <p className="font-body text-lg italic leading-relaxed text-silver-400 md:text-xl">
+                &ldquo;Through DMD SILVERLINE, our mission is to connect global
+                partners with Africa&apos;s most promising opportunities while
+                promoting sustainable development and technology transfer that
+                benefits future generations.&rdquo;
+              </p>
+              <footer className="mt-4 font-display text-sm font-semibold text-growth">
+                — Mohammed Sanni Dantoro
+              </footer>
+            </motion.blockquote>
           </div>
         </div>
       </section>
