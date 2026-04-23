@@ -33,8 +33,8 @@ export default function HomePage() {
       <section className="relative min-h-[78vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/home-hero.svg"
-            alt=""
+            src="/visuals/abuja_skyline.jpg"
+            alt="Abuja skyline"
             fill
             priority
             className="object-cover"
@@ -107,6 +107,17 @@ export default function HomePage() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.06 }}
           >
+            <div className="overflow-hidden rounded-2xl border border-black/10 bg-white">
+              <div className="relative aspect-video">
+                <Image
+                  src="/visuals/world_map_cargo_connect.jpeg"
+                  alt="Global trade routes connecting continents"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-charcoal/10" />
+              </div>
+            </div>
             <GlobalMapNodes />
           </motion.div>
         </div>
