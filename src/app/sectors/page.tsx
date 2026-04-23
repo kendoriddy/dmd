@@ -10,7 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { SectorIllustration } from "@/components/sectors/SectorIllustration";
+import { SectorPhoto } from "@/components/sectors/SectorPhoto";
 
 const impactCards = [
   {
@@ -75,7 +75,7 @@ export default function SectorsPage() {
           <p className="mt-4 font-body text-lg text-silver-400 leading-relaxed">
             Technical depth across six pillars—each tied to{" "}
             <strong className="text-silver-200">economic impact</strong>,{" "}
-            <strong className="text-silver-200">infrastructure growth</strong>,
+            <strong className="text-silver-200">infrastructure growth</strong>,{" "}
             and <strong className="text-silver-200">technology transfer</strong>
             .
           </p>
@@ -98,10 +98,7 @@ export default function SectorsPage() {
               "Asia–Africa synergy: advanced agricultural innovation applied to West African soil.",
             ]}
             illustration={
-              <SectorIllustration
-                variant="agriculture"
-                className="h-full w-full"
-              />
+              <SectorPhoto variant="agriculture" className="h-full w-full" />
             }
           />
           <SectorBlock
@@ -115,7 +112,7 @@ export default function SectorsPage() {
               "Technology integration: advanced energy technology adapted to local markets.",
             ]}
             illustration={
-              <SectorIllustration variant="energy" className="h-full w-full" />
+              <SectorPhoto variant="energy" className="h-full w-full" />
             }
           />
         </div>
@@ -215,13 +212,13 @@ function SectorBlock({
   intro,
   bullets,
   illustration,
-}: {
+}: Readonly<{
   icon: typeof Sprout;
   title: string;
   intro: string;
   bullets: string[];
   illustration: React.ReactNode;
-}) {
+}>) {
   return (
     <motion.article
       initial={{ opacity: 0, x: -12 }}
@@ -267,9 +264,9 @@ function SectorBlock({
 
 function ImpactCarousel({
   cards,
-}: {
+}: Readonly<{
   cards: { title: string; body: string }[];
-}) {
+}>) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollBy = (dir: number) => {
@@ -328,7 +325,7 @@ function SupportCard({
 }: Readonly<{
   title: string;
   focus: string;
-  variant: Parameters<typeof SectorIllustration>[0]["variant"];
+  variant: Parameters<typeof SectorPhoto>[0]["variant"];
 }>) {
   return (
     <motion.article
@@ -348,7 +345,7 @@ function SupportCard({
           </p>
         </div>
         <div className="overflow-hidden rounded-2xl">
-          <SectorIllustration variant={variant} className="h-[140px] w-full" />
+          <SectorPhoto variant={variant} className="h-[140px] w-full" />
         </div>
       </div>
     </motion.article>

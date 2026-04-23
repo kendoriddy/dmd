@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const sectors = [
@@ -7,31 +8,43 @@ const sectors = [
     id: "agriculture",
     title: "Agriculture & Agri-Technology",
     text: "Driving agricultural modernization through mechanization, irrigation, and global partnerships.",
+    imageSrc: "/visuals/agriculture_irrigation.jpg",
+    imageAlt: "Agricultural irrigation and field work",
   },
   {
     id: "energy",
     title: "Energy",
     text: "Supporting renewable energy and infrastructure development across emerging markets.",
+    imageSrc: "/visuals/solar_farm.jpeg",
+    imageAlt: "Solar farm renewable energy infrastructure",
   },
   {
     id: "trade",
     title: "Trade",
     text: "Facilitating international trade between Africa and global markets.",
+    imageSrc: "/visuals/cargo_port.jpeg",
+    imageAlt: "Cargo port and international logistics",
   },
   {
     id: "automobile",
     title: "Automobile & Equipment",
     text: "Supplying vehicles and industrial equipment to support economic growth.",
+    imageSrc: "/visuals/fleet_of_cars_beside_water_body.jpeg",
+    imageAlt: "Fleet vehicles and equipment supply",
   },
   {
     id: "oilgas",
     title: "Oil & Gas",
     text: "Advisory and investment facilitation across upstream, midstream, and downstream sectors.",
+    imageSrc: "/visuals/oil_offshore_forcados.webp",
+    imageAlt: "Offshore oil and gas operations",
   },
   {
     id: "consultancy",
     title: "Strategic Consultancy",
     text: "Providing market entry, partnership development, and project advisory services.",
+    imageSrc: "/visuals/meeting_serious_people.jpeg",
+    imageAlt: "Executive meeting and strategic advisory",
   },
 ];
 
@@ -59,14 +72,26 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.03 }}
-              className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-6"
+              className="scroll-mt-28 overflow-hidden rounded-2xl border border-black/10 bg-white"
             >
-              <h2 className="font-display text-xl font-semibold text-silver-50">
-                {s.title}
-              </h2>
-              <p className="mt-2 font-body text-sm leading-relaxed text-silver-500">
-                {s.text}
-              </p>
+              <div className="relative aspect-video bg-charcoal">
+                <Image
+                  src={s.imageSrc}
+                  alt={s.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+              <div className="p-6">
+                <h2 className="font-display text-xl font-semibold text-silver-50">
+                  {s.title}
+                </h2>
+                <p className="mt-2 font-body text-sm leading-relaxed text-silver-500">
+                  {s.text}
+                </p>
+              </div>
             </motion.section>
           ))}
         </div>
